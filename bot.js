@@ -15,6 +15,7 @@ const lang = require('./data/lang.json');
 
 
 //set constants
+const pfix = settings.log_prefix;
 colors.setTheme({
 	silly: 'rainbow',
 	process: 'magenta',
@@ -40,12 +41,12 @@ bot.login(botPrivate.token);
 
 //Listener: Ready
 bot.on("ready", async () => {
-	console.log(colors.success(`${bot.user.username}` + " " + 'is ready'));
+	console.log(pfix + colors.success(`${bot.user.username}` + " " + 'is ready'));
 	bot.generateInvite(["ADMINISTRATOR"]).then(
 		link => {
-			console.log(colors.info("Invite link= " + link));
+			console.log(pfix + colors.info("Invite link= " + link));
 		}).catch(err => {
-			console.log(err.stack);
+			console.log(pfix + err.stack);
 		});
 
 });
