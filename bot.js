@@ -101,7 +101,7 @@ bot.on("message", async message => {
 
 
 //!====================================!
-//!             Extra Listeners              !
+//!          Extra Listeners           !
 //!====================================!
 
 //Listener: Ready
