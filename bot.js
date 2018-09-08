@@ -10,7 +10,7 @@ const fs = require("fs");
 //import json files
 const private = require('./data/private.json');
 const settings = require('./data/settings.json');
-const lang = require('./data/lang.json');
+const lang = require('./data/en_US.json');
 
 //functions
 
