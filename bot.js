@@ -3,7 +3,7 @@
 console.log("Starting LDB...")
 
 //import libs
-const discord = require('discord.js');
+const Discord = require('discord.js');
 const colors = require("colors");
 
 //import json files
