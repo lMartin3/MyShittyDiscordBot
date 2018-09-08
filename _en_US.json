@@ -1,0 +1,13 @@
+{
+    "test":"ME ME BIG BOY",
+    "invalid_arguments":":x: Invalid arguments",
+    "no_permission":"You have no permission to perform this action",
+    "has_no_avatar":":x: This user has no avatar image",
+    "wait_avatar":":clock1: Please wait...",
+    "invalid_voice_channel":":x: You're not in a voice channel",
+    "invalid_current_song":":x: The bot is not playing any song",
+    "now_playing":":loud_sound: Now playing: ",
+    "now_skipping":":arrow_right: Song skipped",
+    "now_stopping":":octagonal_sign: Stopped playing",
+    "song_added":" added to queue"
+}

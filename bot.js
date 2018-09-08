@@ -10,7 +10,8 @@ const fs = require("fs");
 //import json files
 const private = require('./data/private.json');
 const settings = require('./data/settings.json');
-const lang = require('./data/en_US.json');
+console.log(settings.prefix);
+const str = require('./data/_en_US.json');
 
 //functions
 
@@ -50,7 +51,7 @@ function reload() {
 			consolore.log("No command files found");
 			return;
 		}
-		console.log(colors.process(lang.cmd_load, jsfiles.length ));
+		console.log(colors.process(`Loaded a total of ${jsfiles.lenght} commands`));
 		jsfiles.forEach((f, i) => {
 			let props = require(`./commands/${f}`);
 			console.log(colors.data(`${i + 1}: ${f} loaded`));
@@ -77,7 +78,7 @@ bot.on("message", async message => {
 	let args = messageArray.slice(1);
 	if(command===`${prefix}modules`) {
         //listmodules(message);
-        message.channel.send(lang.unsupported);
+        message.channel.send(str.unsupported);
 		console.log(bot.commands)
 		return;
 	}
