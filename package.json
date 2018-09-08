@@ -1,0 +1,22 @@
+{
+  "name": "ldiscordbot",
+  "version": "1.0.0",
+  "description": "Modular discord bot with mysql",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lMartin3/lDiscordBot.git"
+  },
+  "author": "lMartin3",
+  "license": "SEE LICENSE IN LICENSE.TXT",
+  "bugs": {
+    "url": "https://github.com/lMartin3/lDiscordBot/issues"
+  },
+  "homepage": "https://github.com/lMartin3/lDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
