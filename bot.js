@@ -48,5 +48,4 @@ bot.on("ready", async () => {
 		}).catch(err => {
 			console.log(pfix + err.stack);
 		});
-
 });
