@@ -1,3 +1,6 @@
 {
-    "ping":"pong :ball:"
+    "ping":"pong :ball:",
+    "unsupported":":x: This is not supported yet",
+    "cmd_load":"Loading %s",
+    "cmd_total":"Loaded a total of %s commands"
 }
