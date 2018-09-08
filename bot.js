@@ -33,7 +33,7 @@ colors.setTheme({
 });
 
 //init bot
-bot.login(botPrivate.token);
+bot.login(private.token);
 
 //!===================================!
 //!                                   !
