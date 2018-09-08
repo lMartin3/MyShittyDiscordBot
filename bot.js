@@ -15,6 +15,7 @@ const lang = require('./data/lang.json');
 
 
 //set constants
+const bot = new Discord.Client({disableEveryone: true});
 const lpfix = settings.log_prefix;
 const prefix =settings.prefix;
 bot.commands = new Discord.Collection();
@@ -32,7 +33,6 @@ colors.setTheme({
 });
 
 //init bot
-const bot = new Discord.Client({disableEveryone: true});
 bot.login(botPrivate.token);
 
 //!===================================!
