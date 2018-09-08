@@ -5,6 +5,7 @@ console.log("Starting LDB...")
 //import libs
 const Discord = require('discord.js');
 const colors = require("colors");
+const fs = require("fs");
 
 //import json files
 const private = require('./data/private.json');
