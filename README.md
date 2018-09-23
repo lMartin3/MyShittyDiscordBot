@@ -48,7 +48,7 @@ Create a .json file in the `commands` folder, e.g: `my_command.json` and open it
 ### Step 2:
 Paste the following structure:
 
-```json
+```javascript
 //Import lang file and discord.js library
 const Discord = require("discord.js");
 const Lang = require("../data/lang.json");
