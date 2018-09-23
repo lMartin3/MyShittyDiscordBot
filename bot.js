@@ -11,7 +11,7 @@ const fs = require("fs");
 const private = require('./data/private.json');
 const settings = require('./data/settings.json');
 console.log(settings.prefix);
-const str = require('./data/_en_US.json');
+const str = require('./data/lang.json');
 
 //functions
 
