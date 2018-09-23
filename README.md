@@ -5,8 +5,10 @@
 ----
 ## Instalation
 ### Pre-requisites
-- Have node.js installed
-- Have npm installed
+- Have [node.js](https://nodejs.org) installed
+- Have npm installed (Comes with node.js)
+- Have a [Discord aplication](https://discordapp.com/developers/applications/) and a bot token
+> [Click here](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token) to see how to create a discord aplication and get a bot token
 ### Step 1:
 Clone the source code by using
 ```bash
@@ -18,7 +20,23 @@ Go into the folder named `lDiscordBot` and run the following command in a termin
 ```bash
 npm i
 ```
+### Step 3:
+Go into the folder `data` and create a file named `private.json`.  
+Open the file with a text editor and paste the following:
+```json
+{
+    "token":"TOKEN"
+}
+```
+Replace `TOKEN` your bot's token.  
+> Note: Remember to leave the quotes
+
 ---
-## Usage
+## Starting it up
+To start up the bot, go back to `lDiscordBot` folder and open a terminal / command prompt, then run the following command:
+```bash
+node bot.js
+```
+
 
 
