@@ -37,6 +37,50 @@ To start up the bot, go back to `lDiscordBot` folder and open a terminal / comma
 ```bash
 node bot.js
 ```
+If you have done correctly all the installation steps, it should run and give you a link to invite the bot to your server.
+
+---
+## Modular commands
+This bot uses modular .json files as commands, so you can add, delete or modify commands individualy.  
+To create a command, follow these steps:
+### Step 1:
+Create a .json file in the `commands` folder, e.g: `my_command.json` and open it with a text editor.
+### Step 2:
+Paste the following structure:
+
+```json
+//Import lang file and discord.js library
+const Discord = require("discord.js");
+const Lang = require("../data/lang.json");
+
+//When command is called 
+module.exports.run = async (bot, message, args) => {
+    //code
+}
+
+//Info:
+module.exports.help = {
+	name: "", //Name of the command
+	about: "" //Description of what it does
+}
+```
+> Note: remember to leave the quotes in the command name and description
+
+To use your command you will have to write a message with the command name after the prefix, e.g: `!mycommand`
+
+### Example 'Ping' command:
+Returns 'Pong! :ping_pong:' when used
+```javascript
+const Discord = require("discord.js");
+const Lang = require("../data/lang.json");
+module.exports.run = async (bot, message, args) => {
+    message.channel.send("Pong! :ping_pong:");
+}
+module.exports.help = {
+	name: "ping",
+	about: "pong"
+}
+```
 
 
 
