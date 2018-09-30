@@ -13,5 +13,11 @@
     "now_skipping":":arrow_right: Song skipped",
     "now_playing":":loud_sound: Now playing: ",
     "now_stopping":":octagonal_sign: Stopped playing",
-    "song_added":" added to queue"
+    "song_added":" added to queue",
+    "looking_up":":mag_right: Please wait... (Looking up in database)",
+    "no_results":":x: No results found",
+    "op_successful":"Operation successful :check_mark:",
+    "invite_sent":"Invite info has been sent through direct message",
+    "invite_link":"You can invite me by clicking this link: ",
+    "invite_qr":"or by scanning the following QR Code:"
 }

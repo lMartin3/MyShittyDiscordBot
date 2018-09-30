@@ -1,2 +1,4 @@
 node_modules/
-private.json
+bot_private.json
+mysql_private.json
+twitter_private.json

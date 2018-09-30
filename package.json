@@ -18,6 +18,11 @@
   "homepage": "https://github.com/lMartin3/lDiscordBot#readme",
   "dependencies": {
     "colors": "^1.3.2",
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "jimp": "^0.5.3",
+    "jsqrcode": "0.0.7",
+    "mime": "^2.3.1",
+    "mysql": "^2.16.0",
+    "qrcode": "^1.2.2"
   }
 }
