@@ -1,4 +1,5 @@
 {
     "log_prefix":"[LDB]",
-    "prefix":"!"
+    "prefix":"!",
+    "use_database":true
 }

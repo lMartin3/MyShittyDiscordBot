@@ -1,5 +1,6 @@
 {
     "ping":"pong :ball:",
+    "missing_args":":x: Missing arguments",
     "unsupported":":x: This is not supported yet",
     "cmd_load":"Loading %s",
     "cmd_total":"Loaded a total of %s commands",
@@ -19,5 +20,6 @@
     "op_successful":"Operation successful :check_mark:",
     "invite_sent":"Invite info has been sent through direct message",
     "invite_link":"You can invite me by clicking this link: ",
-    "invite_qr":"or by scanning the following QR Code:"
+    "invite_qr":"or by scanning the following QR Code:",
+    "disabled":":x: This function is disabled"
 }

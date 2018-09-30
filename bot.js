@@ -9,63 +9,70 @@ const fs = require("fs");
 const mysql = require("mysql");
 
 //import json files
-const private = require('./data/bot_private.json');
-const data_mysql = require('./data/mysql_private.json');
-const data_twitter = require('./data/twitter_private.json');
+const private = require('./private/bot_private.json');
+const data_mysql = require('./private/mysql_private.json');
+const data_twitter = require('./private/twitter_private.json');
 const settings = require('./data/settings.json');
 console.log(settings.prefix);
 const str = require('./data/lang.json');
 
 const con = mysql.createConnection({
-    host: data_mysql.host,
-    user: data_mysql.user,
-    password: data_mysql.password,
-    database: data_mysql.database
+	host: data_mysql.host,
+	user: data_mysql.user,
+	password: data_mysql.password,
+	database: data_mysql.database
 });
-con.connect(err => {
-    if(err) throw err;
-    console.log("Connected to database!")
-    con.query("SHOW TABLES;", console.log)
-})
+if(settings.use_database==true) {
+	con.connect(err => {
+		if(err) {
+			console.log(colors.red + "Database is probably offline or unreachable");
+			throw err;
+	}
+		console.log("Connected to database!")
+		con.query("SHOW TABLES;", console.log)
+	})
+}
 
 
 
 
 
 //functions
-function generateXp() {
+function generateXp(multi) {
     let min = 20;
-    let max = 30;
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+	let max = 30;
+	let sta = Math.floor(Math.random() * (max - min + 1)) + min;
+    return sta*multi;
 };
 function xpLogic(message) {
-	con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-		console.log(rows.length);
-		if(rows.length<1) {
-			sql = `INSERT INTO xp (id, xp, lvl) VALUES ('${message.author.id}', ${generateXp()}, 1)`;
-			con.query(sql);
-
-		} else {
-			let xp = rows[0].xp;
-			let lvl = rows[0].lvl;
-			sql= `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`;
-			con.query(sql);
-			let xpnecesary = Math.pow(lvl, 5);
-			if(xp > xpnecesary) {
-				let lvl = rows[0].lvl + 1
-				let lvlnext = lvl + 1
-				sql= `UPDATE xp SET lvl = ${lvl} WHERE id = '${message.author.id}'`;
+	if(settings.use_database==true) {
+		con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+			if(rows.length<1) {
+				sql = `INSERT INTO xp (id, xp, lvl) VALUES ('${message.author.id}', ${generateXp(1)}, 1)`;
 				con.query(sql);
-				var levelup = new Discord.RichEmbed()
-				levelup.setTitle("Level up!")
-				levelup.setDescription(message.author + " reached level " + lvl + "!");
-				levelup.addField("XP:", xp, true)
-				levelup.addField(`Required XP for level ${lvlnext}`, `${xpnecesary*2}`, true )
-				levelup.setThumbnail(message.author.avatarURL)
-				message.channel.send(levelup)
+	
+			} else {
+				let xp = rows[0].xp;
+				let lvl = rows[0].lvl;
+				sql= `UPDATE xp SET xp = ${xp + generateXp(lvl)} WHERE id = '${message.author.id}'`;
+				con.query(sql);
+				let xpnecesary = Math.pow(lvl, 3);
+				if(xp > xpnecesary) {
+					let lvl = rows[0].lvl + 1
+					let lvlnext = lvl + 1
+					sql= `UPDATE xp SET lvl = ${lvl} WHERE id = '${message.author.id}'`;
+					con.query(sql);
+					var levelup = new Discord.RichEmbed()
+					levelup.setTitle("Level up!")
+					levelup.setDescription(message.author + " reached level " + lvl + "!");
+					levelup.addField("XP:", xp, true)
+					levelup.addField(`Required XP for level ${lvlnext}`, `${Math.pow(lvlnext, 3)}`, true )
+					levelup.setThumbnail(message.author.avatarURL)
+					message.channel.send(levelup)
+				}
 			}
-		}
-	})
+		})
+	}
 }
 function listmodules(message) {
 	fs.readdir("./commands/", (err, files) => {
