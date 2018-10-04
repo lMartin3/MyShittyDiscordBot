@@ -8,7 +8,7 @@ const Discord = require("discord.js");
 const Lang = require("../data/lang.json");
 //Str:
 module.exports.run = async (bot, message, args) => {
-    let target = message.mentions.users.first() || message.guild.members.get(args[1]) || message.author;
+    let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
     let msg = await message.channel.send(Lang.wait_avatar);
     if(!target.avatarURL) {
         message.channel.send(Lang.has_no_avatar);
@@ -26,5 +26,7 @@ module.exports.run = async (bot, message, args) => {
 //Info:
 module.exports.help = {
 	name: "avatar",
-	about: "Use this command to get the avatar from a discord user"
+	about: "Use this command to get the avatar from a discord user",
+    use: "!avatar [User]",
+    author: "lMartin3"
 }

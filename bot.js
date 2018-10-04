@@ -54,7 +54,7 @@ function xpLogic(message) {
 			} else {
 				let xp = rows[0].xp;
 				let lvl = rows[0].lvl;
-				sql= `UPDATE xp SET xp = ${xp + generateXp(lvl)} WHERE id = '${message.author.id}'`;
+				sql= `UPDATE xp SET xp = ${xp + generateXp(lvl/4)} WHERE id = '${message.author.id}'`;
 				con.query(sql);
 				let xpnecesary = Math.pow(lvl, 3);
 				if(xp > xpnecesary) {
@@ -94,7 +94,6 @@ function listmodules(message) {
 			let props = require(`./commands/${f}`);
 			embed.addField(props.help.name, props.help.about, true);
 			bot.commands.set(props.help.name, props);
-			
 		});
 		embed.setDescription(`Loaded a total of ${tc} modules`);
 		message.channel.send(embed);
@@ -176,7 +175,27 @@ bot.on("message", async message => {
 		message.channel.send(":clock2: Reloading...");
 		reload();
 		return;
-    }
+	}
+	if(command===`${prefix}cmdinfo`) {
+		if(args.length > 0) {
+			let cmd = bot.commands.get(args[0]);
+			if(cmd) {
+				var emb = new Discord.RichEmbed()
+				.setTitle("Command: " +cmd.help.name)
+				.setDescription("lDiscordBot command")
+				.addField("Name:", cmd.help.name, true)
+				.addField("About:", cmd.help.about, true)
+				.addField("Use:", cmd.help.use, true)
+				.addField("Author:", cmd.help.author, true)
+				.setColor("#18a51f");
+				message.channel.send(emb);
+			} else {
+				message.channel.send(str.cmd_not_found);
+			}
+		} else {
+			message.channel.send(str.cmdinfo_na);
+		}
+	}
     let cmd = bot.commands.get(command.slice(prefix.length));
 	if(cmd) {
 		cmd.run(bot, message, args, con);

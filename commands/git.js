@@ -21,5 +21,7 @@ module.exports.run = async (bot, message, args) => {
 //Info:
 module.exports.help = {
 	name: "git",
-	about: "Get the link of the bot's github repo"
+	about: "Get the link of the bot's github repo",
+    use: "!git",
+    author: "lMartin3"
 }

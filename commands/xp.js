@@ -11,7 +11,7 @@ const settings = require("../data/settings.json")
 //Str:
 module.exports.run = async (bot, message, args, con) => {
     if(settings.use_database==true) {
-        let target = message.mentions.users.first() || message.guild.members.get(args[1]) || message.author;
+        let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
         let msg = await message.channel.send(Lang.looking_up);
         con.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err,rows) => {
             if(rows.length<1) {
@@ -27,14 +27,15 @@ module.exports.run = async (bot, message, args, con) => {
                 let decp = xpnecesary/100;
                 let pp = xp/decp;
                 var xpreturn = new Discord.RichEmbed()
-                xpreturn.setTitle(":mag: Result found!")
-                xpreturn.setDescription(target + " was found in the bot database")
+                //xpreturn.setTitle(":mag: Result found!")
+                //xpreturn.setDescription(target + " was found in the bot database")
                 xpreturn.addField("XP:", xp, true)
                 xpreturn.addField("Level:", lvl, true)
                 xpreturn.addField("XP required for next level:", xpnecesary, true)
                 xpreturn.addField(`Progress to level ${nextlevel}: ${xp}/${xpnecesary} [${reaming}]`, pp+"%", true)
                 xpreturn.setThumbnail(target.avatarURL)
                 xpreturn.setAuthor(target.username, target.avatarURL);
+                xpreturn.setFooter("lDiscordBot XP system", bot.user.avatarURL);
                 message.channel.send(xpreturn)
                 msg.delete();
             }
@@ -46,5 +47,7 @@ module.exports.run = async (bot, message, args, con) => {
 //Info:
 module.exports.help = {
 	name: "xp",
-	about: "Use this command to get the amout of xp you have"
+	about: "Use this command to get the amout of xp you have",
+    use: "!xp [User]",
+    author: "lMartin3"
 }

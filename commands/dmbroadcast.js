@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
 }
 //Info:
 module.exports.help = {
-	name: "ping",
+	name: "dmbroadcast",
 	about: "pong",
-    use: "!ping [Reason of life]",
+    use: "!yt (Search query)",
     author: "lMartin3"
 }

@@ -39,5 +39,7 @@ module.exports.run = async (bot, message, args) => {
 //Info:
 module.exports.help = {
 	name: "invite",
-	about: "Generate a bot invitation link"
+	about: "Generate a bot invitation link",
+    use: "!invite",
+    author: "lMartin3"
 }

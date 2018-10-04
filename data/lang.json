@@ -1,6 +1,7 @@
 {
     "ping":"pong :ball:",
     "missing_args":":x: Missing arguments",
+    "invalid_arg":":x: Invalid argument",
     "unsupported":":x: This is not supported yet",
     "cmd_load":"Loading %s",
     "cmd_total":"Loaded a total of %s commands",
@@ -21,5 +22,10 @@
     "invite_sent":"Invite info has been sent through direct message",
     "invite_link":"You can invite me by clicking this link: ",
     "invite_qr":"or by scanning the following QR Code:",
-    "disabled":":x: This function is disabled"
+    "disabled":":x: This function is disabled",
+    "cmdinfo_na":"Please especify a command",
+    "cmd_not_found":":x: Command not found",
+    "requires_admin":":no_entry: This command requires administrator permission",
+    "bot_no_admin":":x: Please grant administrator or ban permission to the bot before using this",
+    "target_is_admin":":no_entry: Target user is an administrator"
 }

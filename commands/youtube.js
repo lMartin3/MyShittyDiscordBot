@@ -17,8 +17,8 @@ module.exports.run = async (bot, message, args) => {
     if(args.length < 1) {
         message.channel.send(Lang.missing_args);
         return;
-    }
-    search(args[0], opts, function(err, results) {
+}
+search(args.toString(), opts, function(err, results) {
         for(x=0;x<results.length;x++) {
             var emb = new Discord.RichEmbed();
             emb.setTitle(results[x].title);
@@ -38,5 +38,7 @@ module.exports.run = async (bot, message, args) => {
 //Info:
 module.exports.help = {
 	name: "yt",
-	about: "Youtube search"
+    about: "Youtube search",
+    use: "!yt (Search query)",
+    author: "lMartin3"
 }
