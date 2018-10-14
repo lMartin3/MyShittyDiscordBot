@@ -109,7 +109,10 @@ function listmodules(message) {
 const bot = new Discord.Client({disableEveryone: true});
 const lpfix = settings.log_prefix;
 const prefix =settings.prefix;
+bot.settings = settings;
 bot.commands = new Discord.Collection();
+bot.events = new Discord.Collection();
+
 colors.setTheme({
 	silly: 'rainbow',
 	process: 'magenta',
@@ -131,7 +134,7 @@ bot.login(private.token);
 //!       LOAD COMMAND SYSTEM         !
 //!                                   !
 //!===================================!
-function reload() {
+function reloadCommands() {
 	fs.readdir("./commands/", (err, files) => {
 		if(err) console.error(err);
 	
@@ -149,8 +152,21 @@ function reload() {
 		});
 	});
 }
-reload();
+reloadCommands();
 
+function reloadEvents() {
+	fs.readdir("./events/", (err, files) => {
+		if (err) return console.error(err);
+		files.forEach(file => {
+		  if (!file.endsWith(".js")) return;
+		  const event = require(`./events/${file}`);
+		  let eventName = file.split(".")[0];
+		  bot.on(eventName, event.bind(null, bot));
+		  delete require.cache[require.resolve(`./events/${file}`)];
+		});
+	  });
+}
+reloadEvents();
 
 
 //!===================================!
@@ -173,7 +189,8 @@ bot.on("message", async message => {
 	}
 	if(command===`${prefix}reload`) {
 		message.channel.send(":clock2: Reloading...");
-		reload();
+		reloadCommands();
+		reloadEvents();
 		return;
 	}
 	if(command===`${prefix}cmdinfo`) {
@@ -240,5 +257,10 @@ bot.on("ready", async () => {
 			console.log(lpfix + colors.info("Invite link= " + link));
 		}).catch(err => {
 			console.log(lpfix + err.stack);
-        });
-    });
+		});
+});
+
+
+
+
+
