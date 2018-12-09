@@ -11,18 +11,12 @@ const request   =   require('request');
 //Str:
 module.exports.run = async (bot, message, args) => {
     if(args[0]) {
-        var download = function(uri, filename, callback){
-            request.head(uri, function(err, res, body){
-              console.log('content-type:', res.headers['content-type']);
-              console.log('content-length:', res.headers['content-length']);
-          
-              request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-            });
-          };
-          
-          download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
-            console.log('done');
-          });
+        let tempmes = await message.channel.send(Lang.changingpp)
+        download(args[0], '../pp.png', function(){
+            bot.user.setAvatar("../pp.png");
+            tempmes.delete();
+            message.channel.send(Lang.ppchanged);
+        });
     } else {
         message.channel.send(Lang.missing_args);
     }
@@ -34,3 +28,10 @@ module.exports.help = {
     use: "!botpic (URL/User)",
     author: "lMartin3"
 }
+var download = function(uri, filename, callback){
+    request.head(uri, function(err, res, body){
+      console.log('content-type:', res.headers['content-type']);
+      console.log('content-length:', res.headers['content-length']);
+      request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    });
+  };

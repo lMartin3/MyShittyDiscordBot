@@ -29,5 +29,8 @@
     "bot_no_admin":":x: Please grant administrator or ban permission to the bot before using this",
     "target_is_admin":":no_entry: Target user is an administrator",
     "bot_nickname_changed_to":"Bot's nickname changed to: ",
-    "destroyed_in":"This channel will be deleted in: "
+    "destroyed_in":"This channel will be deleted in: ",
+    "usd_wait":":clock2: Retrieving USD quotation in ARS...",
+    "changingpp":":clock2: Changing profile picture...",
+    "ppchanged":":white_check_mark: Profile picture changed successfully"
 }
