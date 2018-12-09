@@ -4,16 +4,16 @@
 //Known bugs:
 //
 //Req:
-const Discord = require("discord.js");
-const Lang = require("../data/lang.json");
+const Discord   =   require("discord.js");
+const Lang      =    require("../data/lang.json");
 //Str:
 module.exports.run = async (bot, message, args) => {
-    message.channel.send("Pong! " + bot.ping + "ms");
+    message.channel.delete();
 }
 //Info:
 module.exports.help = {
-	name: "ping",
-	about: "pong",
-    use: "!ping [Meaning of life]",
+	name: "sdsda",
+	about: "wtf",
+    use: "!music",
     author: "lMartin3"
 }

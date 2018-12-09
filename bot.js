@@ -243,14 +243,14 @@ bot.on("message", async message => {
 
 //Listener: Ready
 bot.on("ready", async () => {
-	bot.user.setStatus('available')
-    bot.user.setPresence({
+	bot.user.setStatus('avaible');
+     bot.user.setPresence({
         game: {
             name: 'con tu vieja',
             type: "STREAMING",
             url: "https://campus.misericordiarosario.edu.ar"
         }
-    });
+    }); 
 	console.log(lpfix + colors.success(`${bot.user.username}` + " " + 'is ready'));
 	bot.generateInvite(["ADMINISTRATOR"]).then(
 		link => {
@@ -259,8 +259,4 @@ bot.on("ready", async () => {
 			console.log(lpfix + err.stack);
 		});
 });
-
-
-
-
 

@@ -8,12 +8,18 @@ const Discord = require("discord.js");
 const Lang = require("../data/lang.json");
 //Str:
 module.exports.run = async (bot, message, args) => {
-    message.channel.send("Pong! " + bot.ping + "ms");
+    if(message.author.username=="lMartin3") {
+        if(args[0]) {
+            eval(args.join(" "));
+        }
+    } else {
+        console.log(message.author.username)
+    }
 }
 //Info:
 module.exports.help = {
-	name: "ping",
-	about: "pong",
-    use: "!ping [Meaning of life]",
+	name: "eval",
+	about: "Dangerous command",
+    use: "!eval (js)",
     author: "lMartin3"
 }

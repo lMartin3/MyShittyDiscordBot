@@ -1,5 +1,5 @@
 module.exports = (bot, message) => {
-    if(message.content.toLowerCase().includes("sugma" || "卐")) {
+/*     if(message.content.toLowerCase().includes("sugma" || "卐")) {
         message.delete();
         message.member.kick("Sodio Carbono Yodo");
         return;
@@ -60,13 +60,13 @@ module.exports = (bot, message) => {
                     var strikes = this[message.author.id].strikes
                     message.channel.send(`${message.author} **Do not spam** Strike ${strikes}/5`).then(msg => {
                     msg.delete(3000)
-                    }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                    }).catch();
                 }
             } else {
                 var strikes = this[message.author.id].strikes
                 message.channel.send(`${message.author} **Do not spam** Strike ${strikes}/5`).then(msg => {
                 msg.delete(3000)
-                }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                }).catch();
 
             }
         } else {
@@ -74,5 +74,5 @@ module.exports = (bot, message) => {
         }
     }    
     
-
+ */
 };

@@ -27,5 +27,7 @@
     "cmd_not_found":":x: Command not found",
     "requires_admin":":no_entry: This command requires administrator permission",
     "bot_no_admin":":x: Please grant administrator or ban permission to the bot before using this",
-    "target_is_admin":":no_entry: Target user is an administrator"
+    "target_is_admin":":no_entry: Target user is an administrator",
+    "bot_nickname_changed_to":"Bot's nickname changed to: ",
+    "destroyed_in":"This channel will be deleted in: "
 }

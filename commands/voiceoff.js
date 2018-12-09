@@ -8,12 +8,15 @@ const Discord = require("discord.js");
 const Lang = require("../data/lang.json");
 //Str:
 module.exports.run = async (bot, message, args) => {
-    message.channel.send("Pong! " + bot.ping + "ms");
+    if(message.guild.voiceConnection) {
+        message.guild.voiceConnection.disconnect();
+    }
+    
 }
 //Info:
 module.exports.help = {
-	name: "ping",
-	about: "pong",
-    use: "!ping [Meaning of life]",
+	name: "voiceoff",
+	about: "wtf",
+    use: "!voiceoff",
     author: "lMartin3"
 }
