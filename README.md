@@ -2,7 +2,6 @@
 ## A modular Discord bot
 **lDiscordBot** is a modular [Discord](https://discord.com) made in [node.js](https://nodejs.org) with the [Discord.JS](https://discord.js.org/#/) library.  
 ---
----
 ## Installation
 ### Pre-requisites
 - Have [node.js](https://nodejs.org) installed
@@ -41,7 +40,6 @@ If you have done correctly all the installation steps, it should run and give yo
 
 
 ---
----
 
 ## Modular commands
 This bot uses modular .js files as commands, so you can add, delete or modify commands individualy.  
@@ -64,7 +62,9 @@ module.exports.run = async (bot, message, args) => {
 //Info:
 module.exports.help = {
 	name: "", //Name of the command
-	about: "" //Description of what it does
+    about: "", //Description of what it does
+    use: "", //How to use the command (incluiding arguments)
+    author: "" //Author of the command
 }
 ```
 > Note: remember to leave the quotes in the command name and description
@@ -83,7 +83,7 @@ module.exports.help = {
 	name: "ping",
 	about: "pong",
 	use: "!ping",
-        author: "lMartin3"
+    author: "lMartin3"
 }
 ```
 

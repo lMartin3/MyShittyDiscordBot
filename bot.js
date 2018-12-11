@@ -181,7 +181,7 @@ bot.on("message", async message => {
 	let messageArray = message.content.split(" ");
 	let command = messageArray[0];
 	let args = messageArray.slice(1);
-	if(command===`${prefix}modules`) {
+	if(command===`${prefix}help`) {
         listmodules(message);
         //message.channel.send(str.unsupported);
 		//console.log(bot.commands)
@@ -246,7 +246,7 @@ bot.on("ready", async () => {
 	bot.user.setStatus('avaible');
      bot.user.setPresence({
         game: {
-            name: 'con tu vieja',
+            name:`${settings.prefix}help | ${bot.guilds.size} servers`,
             type: "STREAMING",
             url: "https://campus.misericordiarosario.edu.ar"
         }
