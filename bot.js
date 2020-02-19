@@ -248,7 +248,7 @@ bot.on("ready", async () => {
         game: {
             name:`${settings.prefix}help | ${bot.guilds.size} servers`,
             type: "STREAMING",
-            url: "https://campus.misericordiarosario.edu.ar"
+            url: "https://google.com.ar"
         }
     }); 
 	console.log(lpfix + colors.success(`${bot.user.username}` + " " + 'is ready'));
