@@ -24,7 +24,7 @@
     "jsqrcode": "0.0.7",
     "mime": "^2.3.1",
     "mysql": "^2.16.0",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "qrcode": "^1.2.2",
     "youtube-search": "^1.1.1"
   }
